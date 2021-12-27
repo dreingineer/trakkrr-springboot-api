@@ -1,13 +1,13 @@
-package com.trakkrr.handler
+package user.handler
 
-import com.trakkrr.entities.ContactDetail
-import com.trakkrr.service.ContactDetailService
+import user.entities.ContactDetail
+import user.service.ContactDetailService
 import org.springframework.web.bind.annotation.*
 
 @RestController
 class ContactDetailHandler(private val contactDetailService: ContactDetailService) {
     @PostMapping("/api/contact-detail/{userId}")
-    fun createContactDetail(@RequestBody contactDetail:ContactDetail, @PathVariable("userId") userId: Long): ContactDetail {
+    fun createContactDetail(@RequestBody contactDetail: ContactDetail, @PathVariable("userId") userId: Long): ContactDetail {
         return contactDetailService.createContactDetail(contactDetail, userId);
     }
 
@@ -33,4 +33,3 @@ class ContactDetailHandler(private val contactDetailService: ContactDetailServic
         return contactDetailService.getAllContactDetails()
     }
 }
-

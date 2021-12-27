@@ -1,4 +1,4 @@
-package com.trakkrr.entities
+package user.entities
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import javax.persistence.*
@@ -53,6 +53,8 @@ data class User(
     //mamap kanino ang mapped by
     //ung user na column sa contact detail
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    val contactDetails: List<ContactDetail> = mutableListOf()
+    val contactDetails: List<ContactDetail> = mutableListOf(),
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    val addresses: List<Addresses> = mutableListOf()
 )

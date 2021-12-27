@@ -17,3 +17,15 @@ CREATE TABLE IF NOT EXISTS contactDetails(
     PRIMARY KEY(id),
     FOREIGN KEY (userId) REFERENCES users(id)
 );
+
+CREATE TABLE IF NOT EXISTS addresses(
+    id BIGINT AUTO_INCREMENT NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    barangay VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    province VARCHAR(255) NOT NULL,
+    zipCode VARCHAR(255) NOT NULL,
+    userId BIGINT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(userId) REFERENCES users(id)
+);

@@ -1,6 +1,6 @@
-package com.trakkrr.service
+package user.service
 
-import com.trakkrr.entities.User
+import user.entities.User
 
 interface UserService {
     fun createUser(body: User): User

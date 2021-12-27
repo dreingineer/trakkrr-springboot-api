@@ -1,6 +1,6 @@
-package com.trakkrr.repositories
+package user.repositories
 
-import com.trakkrr.entities.ContactDetail
+import user.entities.ContactDetail
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 

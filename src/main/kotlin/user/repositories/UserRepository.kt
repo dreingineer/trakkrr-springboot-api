@@ -1,6 +1,6 @@
-package com.trakkrr.repositories
+package user.repositories
 
-import com.trakkrr.entities.User
+import user.entities.User
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
@@ -35,6 +35,15 @@ interface UserRepository: CrudRepository<User, Long> {
         """
     )
     fun getUserWithContactDetails(id:Long) : Optional<User>
+
+    @Query(
+        """
+            SELECT u FROM User u
+            LEFT JOIN FETCH u.addresses add
+            WHERE u.id = :id
+        """
+    )
+    fun getUserWithAddress(id:Long): Optional<User>
 }
 
 //gitlab.com/reddpanes/trakkrr-springboot-api

@@ -1,8 +1,8 @@
-package com.trakkrr.serviceImpl
+package user.serviceImpl
 
-import com.trakkrr.entities.User
-import com.trakkrr.repositories.UserRepository
-import com.trakkrr.service.UserService
+import user.entities.User
+import user.repositories.UserRepository
+import user.service.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
@@ -23,6 +23,7 @@ class UserServiceImpl(
 
         // save the user using the UserRepository
         return repository.save(user);
+
     }
     /**
      * Get a specific user using an id
@@ -44,6 +45,8 @@ class UserServiceImpl(
 
         //to check add user and add contact detail
     }
+
+
 
     override fun updateUser(body: User, id: Long): User {
         //when updating an object

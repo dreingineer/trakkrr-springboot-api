@@ -1,9 +1,9 @@
-package com.trakkrr.serviceImpl
+package user.serviceImpl
 
-import com.trakkrr.entities.ContactDetail
-import com.trakkrr.repositories.ContactDetailRepository
-import com.trakkrr.repositories.UserRepository
-import com.trakkrr.service.ContactDetailService
+import user.entities.ContactDetail
+import user.repositories.ContactDetailRepository
+import user.repositories.UserRepository
+import user.service.ContactDetailService
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException

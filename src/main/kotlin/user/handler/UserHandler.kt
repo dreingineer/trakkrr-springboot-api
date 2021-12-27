@@ -1,7 +1,7 @@
-package com.trakkrr.handler
+package user.handler
 
-import com.trakkrr.entities.User
-import com.trakkrr.service.UserService
+import user.entities.User
+import user.service.UserService
 import org.springframework.web.bind.annotation.*
 
 // responsible for setting up the routes
@@ -16,13 +16,20 @@ class UserHandler(
         return userService.createUser(user);
     }
 
+    //get user with contact detail
     @GetMapping("/api/user/{id}")
     fun getUserById(@PathVariable("id") id: Long): User {
         return userService.getById(id);
     }
 
+    //need gumawa pa ng implementation ng get mapping for user with addresses
+    //get user with address
+//    fun getUserByIdWithAddress(@PathVariable("id") id:Long): User {
+//
+//    }
+
     @PutMapping("/api/user/{id}")
-    fun updateUser(@RequestBody body:User, @PathVariable("id") id: Long): User {
+    fun updateUser(@RequestBody body: User, @PathVariable("id") id: Long): User {
         return userService.updateUser( body, id);
     }
 

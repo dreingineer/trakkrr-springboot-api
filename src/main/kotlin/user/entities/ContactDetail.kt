@@ -1,4 +1,4 @@
-package com.trakkrr.entities
+package user.entities
 
 import javax.persistence.*
 
