@@ -34,7 +34,7 @@ class AddressesServiceImpl(
      * */
     override fun getAddressById(id: Long): Addresses {
         val address: Addresses = repository.findById(id).orElseThrow{
-            ResponseStatusException(HttpStatus.NOT_FOUND, "Contact Detail with $id does not exist")
+            ResponseStatusException(HttpStatus.NOT_FOUND, "Address with $id does not exist")
         };
         return address;
     }
