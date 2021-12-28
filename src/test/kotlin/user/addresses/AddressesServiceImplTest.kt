@@ -1,4 +1,4 @@
-package user
+package user.addresses
 
 import TrakkrrApplicationTests
 import org.junit.jupiter.api.BeforeEach
@@ -11,6 +11,7 @@ import user.serviceImpl.UserServiceImpl
 import utils.EntityGenerator
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+
 
 class AddressesServiceImplTest: TrakkrrApplicationTests() {
     @Autowired
@@ -28,7 +29,9 @@ class AddressesServiceImplTest: TrakkrrApplicationTests() {
     @BeforeEach
     // kada run ng test delete muna agad ung laman ng repo
     fun setUp() {
+
         addressesRepository.deleteAll()
+        userRepository.deleteAll()
     }
 
     @Test

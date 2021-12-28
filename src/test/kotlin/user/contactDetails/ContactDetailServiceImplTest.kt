@@ -1,4 +1,4 @@
-package user
+package user.contactDetails
 
 import TrakkrrApplicationTests
 import org.junit.jupiter.api.BeforeEach
@@ -12,7 +12,7 @@ import user.serviceImpl.UserServiceImpl
 import utils.EntityGenerator
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
-
+//own implem for pr
 class ContactDetailServiceImplTest: TrakkrrApplicationTests() {
     @Autowired
     private lateinit var contactDetailRepository: ContactDetailRepository
@@ -29,7 +29,9 @@ class ContactDetailServiceImplTest: TrakkrrApplicationTests() {
     @BeforeEach
     //kada run ng test delete muna agad ung laman ng repository
     fun setUp() {
+
         contactDetailRepository.deleteAll()
+        userRepository.deleteAll()
     }
 
     @Test
@@ -47,7 +49,7 @@ class ContactDetailServiceImplTest: TrakkrrApplicationTests() {
 
         val createdUser = userServiceImpl.createUser(user);
         val createdContactDetail = contactDetailRepository.save(contactDetail.copy(
-            user = createdUser
+            user = createdUser,
         ))
         assertEquals(1, contactDetailRepository.findAll().count());
         assertEquals(contactDetail.contactDetails, createdContactDetail.contactDetails);
