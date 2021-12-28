@@ -5,7 +5,9 @@ import user.service.ContactDetailService
 import org.springframework.web.bind.annotation.*
 
 @RestController
-class ContactDetailHandler(private val contactDetailService: ContactDetailService) {
+class ContactDetailHandler(
+    private val contactDetailService: ContactDetailService
+    ) {
     @PostMapping("/api/contact-detail/{userId}")
     fun createContactDetail(@RequestBody contactDetail: ContactDetail, @PathVariable("userId") userId: Long): ContactDetail {
         return contactDetailService.createContactDetail(contactDetail, userId);
