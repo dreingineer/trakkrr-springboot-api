@@ -6,6 +6,7 @@ import user.service.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
+import user.utils.UserTypeEnum
 
 @Service
 class UserServiceImpl(
@@ -21,9 +22,17 @@ class UserServiceImpl(
             throw ResponseStatusException(HttpStatus.CONFLICT, "Email ${user.email} already exists.")
         }
 
-        // save the user using the UserRepository
-        return repository.save(user);
+        //new implementation december 28
+        //check if userType is valid
+        //from 3 choices only or specific choice
+        //I'll create an enum class containing my choices
+        val userType = UserTypeEnum.valueOf(user.userType.uppercase())
 
+        // save the user using the UserRepository
+        // december 28 added implementation
+        return repository.save(user.copy(
+            userType = userType.value
+        ));
     }
     /**
      * Get a specific user using an id

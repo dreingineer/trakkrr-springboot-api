@@ -69,7 +69,7 @@ class UserServiceImplTest: TrakkrrApplicationTests() {
             userServiceImpl.createUser(duplicateUser);
         }
 
-        val expectedException = "409 conflict \"Email ${duplicateUser.email} already existy!\"";
+        val expectedException = "409 CONFLICT \"Email ${duplicateUser.email} already exists.\"";
         assertEquals(expectedException, exception.message)
     }
 
@@ -125,4 +125,26 @@ class UserServiceImplTest: TrakkrrApplicationTests() {
         assertEquals(body.lastName, updatedUser.lastName)
         assertEquals(body.email, updatedUser.email)
     }
+
+
+    @Test
+    fun `create user should throw error given invalid user type`() {
+        val user = EntityGenerator.createUser().copy(
+            userType = "Invalid User Type"
+        )
+
+        val exception = assertFailsWith<IllegalArgumentException> {
+            userServiceImpl.createUser(user)
+        }
+
+        val expectedException = "No enum constant user.utils.UserTypeEnum.INVALID USER TYPE"
+
+        assertEquals(expectedException, exception.message);
+    }
+
+
+
+
+
+
 }

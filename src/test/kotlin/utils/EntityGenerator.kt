@@ -3,13 +3,14 @@ package utils
 import user.entities.Addresses
 import user.entities.ContactDetail
 import user.entities.User
+import user.utils.UserTypeEnum
 
 object EntityGenerator {
     fun createUser(): User = User(
         firstName = "Brandon",
         lastName = "Cruz",
         email = "brandon@brandon.com",
-        userType = "Contractor"
+        userType = UserTypeEnum.CR.value
     )
 
     fun createContactDetail(user: User): ContactDetail = ContactDetail(
